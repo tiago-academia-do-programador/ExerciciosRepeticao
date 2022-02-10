@@ -8,24 +8,21 @@ namespace Exercicio01.ConsoleApp
         {
             double[] alturas = new double[15];
 
-            double maiorAltura = alturas[0];
-            double menorAltura = 1;
+            double maiorAltura = double.MinValue;
+            double menorAltura = double.MaxValue;
 
-            int i = 0;
-            do
+            for (int i = 0; i < alturas.Length; i++)
             {
                 Console.Write("Qual a altura? ");
                 string strAltura = Console.ReadLine();
                 alturas[i] = Convert.ToDouble(strAltura);
 
-                if (alturas[i] <= menorAltura)
-                    menorAltura = alturas[i];
-                
                 if (alturas[i] > maiorAltura)
                     maiorAltura = alturas[i];
 
-                i++;
-            } while (i < 15);
+                if (alturas[i] < menorAltura)
+                    menorAltura = alturas[i];
+            }
 
             Console.WriteLine("A maior altura é: " + maiorAltura);
             Console.WriteLine("A menor altura é: " + menorAltura);
